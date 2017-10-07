@@ -6,13 +6,11 @@
 
 Home						https://thienkim-frontend.github.io/vsb/
 
-Product					https://thienkim-frontend.github.io/vsb/product
-
-Product 1				https://thienkim-frontend.github.io/vsb/byggladan
-
-Product 2				https://thienkim-frontend.github.io/vsb/product-level3
+Product					https://thienkim-frontend.github.io/vsb/product-level3
 
 Product detail	https://thienkim-frontend.github.io/vsb/product-detail
+
+Product 1				https://thienkim-frontend.github.io/vsb/byggladan
 
 Contact					https://thienkim-frontend.github.io/vsb/contact
 
