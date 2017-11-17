@@ -30,7 +30,7 @@
       menuToggle();
     } 
     if(windowWidth < 1340 && windowWidth >= 768){
-      fixSeachbar();
+      // fixSeachbar();
     }
 
     // $(window).on('load', function () {
@@ -59,7 +59,7 @@
         menuToggle();
       }
       if(windowWidth < 1340 && windowWidth >= 768){
-        fixSeachbar();
+        // fixSeachbar();
       }
     };
 
@@ -93,17 +93,24 @@
     ------------------------------------------*/
     function menuHover(){
       var tmrMenu, idCurrentEl, subMenu = $(".custom-submenu");
+      $("#site-navigation .menu-item").mouseenter(function() {
+        $("#site-navigation .menu-item").removeClass('is-hover');
+      });
       $("#site-navigation .menu-item-has-children").on({
         mouseenter: function(event) {
+          $(this).addClass('is-hover');
           clearTimeout(tmrMenu);
           subMenu.addClass("is-active");
           idCurrentEl = $(this).attr("id");
           $(".custom-submenu .primary-menu > li").hide();
           $(".custom-submenu ." + idCurrentEl).show();
         }, mouseleave: function(event) {
+          var $this =  $(this);
           tmrMenu = setTimeout(function() {
+            $this.removeClass('is-hover');
+            console.log($this);
             subMenu.removeClass("is-active");
-          }, 600);
+          }, 100);
         }
       });
 
@@ -111,6 +118,7 @@
           clearTimeout(tmrMenu);
         }).on('mouseleave', function(e) {
           $(this).removeClass("is-active");
+          $("#site-navigation .menu-item-has-children.is-hover").removeClass('is-hover');
         });
     }
 
@@ -254,7 +262,7 @@
     DROPDOWN-LIST FOR PRODUCT DETAIL PAGE
     ------------------------------------------*/
     $(".document-section .dropdown-list").click(function(){
-      $(this).toggleClass('is-active').next().slideToggle("slow");
+      $(this).toggleClass('is-active');
     });
 
     /*-----------------------------------------
@@ -295,9 +303,9 @@
     if($('[data-fancybox]').length){
       var $instance = $(".has-fancybox[data-fancybox]").fancybox();
       $('.video-fancybox [data-fancybox]').fancybox({
-        thumbs : {
-          showOnStart : true
-        }
+        // thumbs : {
+        //   showOnStart : true
+        // },
         // youtube : {
         //   controls : 0,
         //   showinfo : 0
@@ -312,7 +320,7 @@
       $(".btn-more").on("click", function(e){
         var $this = $(this);
         $this.prev(".small-txt").stop().slideToggle("slow");
-        $this.text($this.text() == 'läs mer' ? "läs mindre" : "läs mer");
+        $this.text($this.text().trim().toLowerCase() == 'läs mer' ? "läs mindre" : "läs mer");
         e.preventDefault();
       });
     }
